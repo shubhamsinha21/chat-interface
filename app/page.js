@@ -13,7 +13,7 @@ import {
 } from '@chakra-ui/react';
 
 
-const index = () => {
+function Main() {
   const [chats] = useState([
     {
       id: 1,
@@ -84,4 +84,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Main;
