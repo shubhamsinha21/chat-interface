@@ -1,95 +1,85 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+// src/App.js
+'use client'
+// src/App.js
+import React, { useState } from 'react';
+import NavBar from './components/Navbar';
+import ChatList from './components/ChatList';
+import ChatWindow from './components/ChatWindow';
+import {
+  ChakraProvider,
+  Flex,
+  Container,
+} from '@chakra-ui/react';
 
-export default function Home() {
+
+const index = () => {
+  const [chats] = useState([
+    {
+      id: 1,
+      sender: {
+        id: 1,
+        name: 'John Doe',
+        title: 'Hey, Hello... Nice to ....',
+        image: 'https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg?w=996&t=st=1701815616~exp=1701816216~hmac=fa9b9dda336c972f8772d1c1102b48ec65644ec6e8b788db760ef055bc9b68a3'
+      },
+      senderType: 'other',
+      reply: {
+        sender:
+        {
+          id: 2,
+          name: 'Jane ',
+          image: 'https://img.freepik.com/free-photo/young-beautiful-woman-pink-warm-sweater-natural-look-smiling-portrait-isolated-long-hair_285396-896.jpg?w=996&t=st=1701815957~exp=1701816557~hmac=360fc8a359b330f9c85194396da862e619e420caf536177676a1b963d3986e8c'
+        },
+        senderType: 'you'
+      },
+    },
+    {
+      id: 2,
+      sender: {
+        id: 1,
+        name: 'Mariam',
+        title: 'I thought you ..',
+        image: 'https://img.freepik.com/free-photo/close-up-portrait-cheerful-glamour-girl-with-cute-make-up-smiling-white-teeth-looking-happy-camera-standing-blue-background_1258-70300.jpg?w=996&t=st=1701816266~exp=1701816866~hmac=2fce23119935f052df25542f3034731db718c1102043bfd3a99f55322f1cdfe2'
+      },
+      senderType: 'other',
+      reply: {
+        sender:
+        {
+          id: 2,
+          name: 'Jane',
+          image: 'https://img.freepik.com/free-photo/young-beautiful-woman-pink-warm-sweater-natural-look-smiling-portrait-isolated-long-hair_285396-896.jpg?w=996&t=st=1701815957~exp=1701816557~hmac=360fc8a359b330f9c85194396da862e619e420caf536177676a1b963d3986e8c'
+        }, senderType: 'you'
+      },
+    },
+
+
+  ]);
+  const [selectedChat, setSelectedChat] = useState(null);
+
+  const isChatWindowVisible = !!selectedChat;
+
+  const handleSelectChat = (chat) => {
+    setSelectedChat(chat);
+  };
+
+  const handleBackToChats = () => {
+    setSelectedChat(null);
+  };
+
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+    <ChakraProvider>
+      <div style={{ background: 'black' }}>
+        <Container maxW="container.xl" minH="100vh" display="flex" flexDir="column">
+          <NavBar />
+          <Flex flex="1">
+            <ChatList chats={chats} onSelectChat={handleSelectChat} isChatWindowVisible={isChatWindowVisible} />
+            <ChatWindow selectedChat={selectedChat} onBack={handleBackToChats} />
+          </Flex>
+        </Container>
+      </div >
+    </ChakraProvider>
+  );
+};
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
-}
+export default index;
