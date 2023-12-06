@@ -2,7 +2,7 @@
 
 ### This is a simple chat interface web application built using React and Chakra UI.
 
-## Lets have a look of the ChatApp Interface - 
+### Lets have a look of the ChatApp Interface - 
 
 ![chat-interface](https://github.com/shubhamsinha21/chatApp-interface/assets/84564814/45a23249-9c6c-464a-8620-5b96ba53f517)
 
