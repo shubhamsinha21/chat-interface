@@ -13,11 +13,19 @@ import {
 import Message from './Message';
 import { IoArrowBackCircleOutline } from "react-icons/io5";
 import { RiDeleteBinLine } from "react-icons/ri";
-
+import { IoIosSend } from "react-icons/io";
 
 const ChatWindow = ({ selectedChat, onBack, onDelete }) => {
     return (
-        <Box p="4" flex="1" bg="white" flexDir="column" h="4xl" background='#181818' marginLeft={4} marginTop={4} borderRadius={10}>
+        <Box p="4"
+            flex="1"
+            bg="white"
+            flexDir="column"
+            h="4xl"
+            background='#181818'
+            marginLeft={4}
+            marginTop={4}
+            borderRadius={10}>
             <Flex justify="space-between" mb="4" background='#2f2f2f' borderRadius={10} justifyContent='space-between' mt={-4} w='100%' p={2}>
                 <HStack spacing="2" alignSelf="flex-start" >
                     {selectedChat ? (
@@ -67,7 +75,9 @@ const ChatWindow = ({ selectedChat, onBack, onDelete }) => {
             {selectedChat && (
                 <Flex p="4" borderTop="1px" borderColor="gray.300" alignItems='center'>
                     <Input placeholder="Message" flex="1" mr="2" border='none' background='#2f2f2f' color='white' borderRadius={50} display='flex' ></Input>
-                    <Button background='#d7998c'>Send</Button>
+                    <Button background='#d7998c' borderRadius='50%' >
+                        <IoIosSend w='40px' h='40px' fontSize={15} />
+                    </Button>
                 </Flex>
             )
             }

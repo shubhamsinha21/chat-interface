@@ -1,10 +1,11 @@
-// src/App.js
+
 'use client'
-// src/App.js
+
 import React, { useState } from 'react';
 import NavBar from './components/Navbar';
 import ChatList from './components/ChatList';
 import ChatWindow from './components/ChatWindow';
+import Footer from './components/Footer';
 import {
   ChakraProvider,
   Flex,
@@ -76,6 +77,7 @@ const index = () => {
             <ChatList chats={chats} onSelectChat={handleSelectChat} isChatWindowVisible={isChatWindowVisible} />
             <ChatWindow selectedChat={selectedChat} onBack={handleBackToChats} />
           </Flex>
+          <Footer />
         </Container>
       </div >
     </ChakraProvider>
