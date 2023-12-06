@@ -1,6 +1,6 @@
 ## Chat Interface App
 
-### This is a chat interface 💻 web application built using Next.js 🌟 and Chakra UI. The combination of Next.js and Chakra UI provides a powerful and efficient framework for building React applications with enhanced developer experience and responsive design.
+# This is a chat interface 💻 web application built using Next.js 🌟 and Chakra UI. The combination of Next.js and Chakra UI provides a powerful and efficient framework for building React applications with enhanced developer experience and responsive design.
 
 
  Lets have a look of the ChatApp Interface 🙂 - 
@@ -11,18 +11,16 @@
 
 Deployed Link - https://chatinterfaceapp.netlify.app/
 
-## Components 🤔
+## Main Components 🤔
 
-Components
 1. NavBar:
  -  Displays a navigation bar with a logo, explore, create, edit, and login button.
 
-3. ChatList:
+2. ChatList:
  - Lists all chats on the left side.
  - Each chat entry includes the sender's image and name.
    
-ChatWindow:
-
+3. ChatWindow:
  - Displays selected chat details on the right side.
  - Sender's image and name appear on the left side.
  - Messages displayed with alternating background colors for sender and recipient.
