@@ -1,4 +1,4 @@
-![image](https://github.com/shubhamsinha21/chatApp-interface/assets/84564814/48a0ef60-cd4d-4d1a-ac14-9e4d66168050)# Chat Interface App
+## Chat Interface App
 
 ### This is a simple chat interface web application built using React and Chakra UI.
 
